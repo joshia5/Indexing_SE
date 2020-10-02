@@ -1,2 +1,2 @@
 # LSPT_F20
-All codes for the LSPT course
+All codes for the LSPT team
