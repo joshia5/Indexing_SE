@@ -11,8 +11,10 @@ def parseData():
     websiteWordData = {}
     for i in data: 
         websiteWordData[i] = data[i]
-        
+
     # Closing file 
     f.close()
+
+    return websiteWordData
 
 parseData()
