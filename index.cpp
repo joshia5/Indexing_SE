@@ -1,20 +1,50 @@
-#include <iostream>
+#include <unordered_map>
 #include <string>
 
-#include "config.h"
+#include "index.h"
+#include "document.h"
 
 
+Index::Index() {
+	this->index = new std::unordered_map<std::string, std::vector<Document*>>();
+}
 
 
-int main(int argc, char* argv[]) {
-	// read fields from config.ini
-	Config cfg = Config("config.ini");
-	// make API call to check for new
-	// document-word pairs
+Index::Index(const std::string& state_file) {
 
-	// store new pairs in index
+}
 
-	// output status
+
+Index::~Index() {
+
+}
+
+
+void add_entry(const std::string& word, const Document& document) {
+	// check if word is in index
+
+	// add word and document
+
+}
+
+
+void delete_entry(const std::string& word) {
+	// check if word is in index
+
+	// delete word and free associated Document
+
+}
+
+
+std::vector<Document>& find_entry(const std::string& word) {
+	// check if word is in index
+
+	// copy contents and return
+
+}
+
+
+void restore(const std::string& json_filename) {
+	// reset index from JSON file
 	
-	return 0;
 }
