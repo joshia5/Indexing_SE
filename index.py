@@ -1,9 +1,7 @@
-#from parseData import parse_data
 
 
 class Index:
-	def __init__(self, json_dict):
-		# call method from parseData.py
+	def __init__(self):
 		# data structure will be
 		# {word:{doc_id:{positions}}}
 		self.index = {}
@@ -59,7 +57,7 @@ class Index:
 
 		Returns
 		-------
-		dict or list
+		dict or set
 			Removed entry if successful, None otherwise
 		'''
 		entry = None
@@ -73,3 +71,25 @@ class Index:
 				entry = self.index[word].pop(doc_id)
 		return entry
 
+
+	def find_entry(self, word):
+		'''
+		Finds an entry in the inverted index
+		and returns the result if entry is found
+
+		Parameters
+		----------
+		word : str
+			word string to find in inverted index
+
+		Returns
+		-------
+		dict
+			dictionary containing document_ids to positions
+			for this word
+			None if not found
+		'''
+		entry = None
+		if word in self.index:
+			entry = self.index[word]
+		return entry
