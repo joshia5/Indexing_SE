@@ -1,8 +1,8 @@
 import json
 
-def parseData():
+def parseData(jsonFile):
     # Opening JSON file 
-    f = open('doc1_info.json', "r") 
+    f = open(jsonFile, "r") 
 
     # returns JSON object as a dictionary 
     data = json.loads(f.read())
@@ -17,4 +17,4 @@ def parseData():
 
     return websiteWordData
 
-parseData()
+parseData('doc1_info.json')
