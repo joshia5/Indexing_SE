@@ -171,3 +171,5 @@ dmypy.json
 cython_debug/
 
 .vscode/
+
+.gitignore
