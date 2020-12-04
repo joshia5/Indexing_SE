@@ -2,10 +2,10 @@
 
 
 class Index:
-	def __init__(self, json_filename):
+	def __init__(self, json_dict):
 		# call method from parseData.py
 		# data structure will be
-		# {word:{doc_id:[positions]}}
+		# {word:{doc_id:{positions}}}
 		self.index = {}
 
 
@@ -19,7 +19,7 @@ class Index:
 			word to index
 		doc_id : int
 			database id for document
-		positions : list[int]
+		positions : set[int]
 			locations of word in document
 
 		Returns
@@ -32,10 +32,10 @@ class Index:
 		if word in self.index:
 			if doc_id in self.index[word]:
 				# possibly update positions
-
+				self.index[word][doc_id].union(positions)
 			else:
 				# add doc and positions
-
+				self.index[word][doc_id] = positions
 		else:
 			# add new full entry
 			self.index[word] = {}
@@ -72,7 +72,4 @@ class Index:
 				# remove only word-document pair
 				entry = self.index[word].pop(doc_id)
 		return entry
-			
-
-
 
