@@ -4,16 +4,17 @@ passed into the function. It then passes each word
 and its positions to the function add_index()
 '''
 
-def parseData(websiteWordData):
+
+def parseData(websiteWordData, index):
     websiteID = websiteWordData["website"]
-    for word in websiteWordData["wordData"]: 
+    for word in websiteWordData["wordData"]:
         wordPositions = websiteWordData["wordData"][word]
-        add_index(websiteID, word, wordPositions)
+        index.add_entry(word, websiteID, wordPositions)
 
 
-file =  {
-            "website": 1, 
-            "wordData": {"word1": [1,2,3,4], "word2": [5,6,7,8]}
-        }
+file = {
+    "website": 1,
+    "wordData": {"word1": [1, 2, 3, 4], "word2": [5, 6, 7, 8]}
+}
 
-parseData(file)
+# parseData(file)
